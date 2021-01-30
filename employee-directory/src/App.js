@@ -1,9 +1,18 @@
 import React from "react";
-import UserContainer from "./components/UserContainer";
-// import "./App.css";
+// import EmployeeContainer from "./components/EmployeeContainer";
+import UserDetail from "./components/UserDetail";
+import Header from "../src/components/Header/SpanHead";
+import Search from "../src/components/Search/Search";
+
 
 function App() {
-  return <UserContainer />;
-}
+  return (
+    <div>
+      <Header />
+      <Search />
+      <UserDetail />
+       {/* <EmployeeContainer/> */}
+    </div>
+  )};
 
 export default App;
