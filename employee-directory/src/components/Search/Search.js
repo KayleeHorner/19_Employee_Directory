@@ -2,7 +2,7 @@ import React from "react";
 
 function Search(props) {
   return (
-    <form className="center-align">
+    <form className="center-align container">
       <div className="input-field">
         <label htmlFor="search"></label>
         <input
@@ -22,5 +22,6 @@ function Search(props) {
     </form>
   );
 }
+
 
 export default Search;
