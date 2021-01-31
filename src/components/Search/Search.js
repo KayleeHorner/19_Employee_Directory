@@ -1,6 +1,6 @@
 import React from "react";
 
-const Search = (props) => {
+const Search = (props, handleInputChange) => {
   return (
     <form className="center-align container">
       <div className="input-field">
