@@ -34,13 +34,14 @@ class EmployeeContainer extends Component {
   };
 
   handleInputChange = (event) => {
-    if (event.target.name === "search") {
-      const inputs = event.target.value;
+    const { value } = event.target;
+    const filterRun = this.state.employees.filter((emp) => {
+      emp.email.includes(value)});
       this.setState({
-        search: inputs,
+        search: value, filterRun,
       });
-    }
-  };
+    };
+ 
 
   // sorting = (event) => {
   //   const name = event.currentTarget.getAttribute('name');
@@ -63,7 +64,7 @@ class EmployeeContainer extends Component {
       <Container>
         <div className="row">
           <Search
-            search={this.state.search}
+            searchInput={this.state.search}
             handleInputChange={this.handleInputChange}
           />
         </div>
