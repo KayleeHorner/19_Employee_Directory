@@ -8,7 +8,7 @@ class EmployeeContainer extends Component {
   state = {
     // filter: "",
     employees: [],
-    filteredEmp: [],
+    filterRun: [],
     nameSort: 0,
     search: "",
   };
@@ -19,45 +19,24 @@ class EmployeeContainer extends Component {
 
   loadEmployees = async () => {
     const randomEmp = await API.getEmp();
-    randomEmp.data.results.forEach((employee) => {
-      const fullName =
-        employee.name.first[0].toUpperCase() +
-        employee.name.first.substring(1) +
-        " " +
-        employee.name.last[0] +
-        employee.name.last.substring(0);
+    randomEmp.data.results.forEach((emp, idx) => {
 
-      employee.name = fullName;
+      emp.key=idx;
+  
     });
     this.setState({ employees: randomEmp.data.results });
-    this.setState({ filteredEmp: randomEmp.data.results });
+    this.setState({ filterRun: randomEmp.data.results });
   };
 
   handleInputChange = (event) => {
     const { value } = event.target;
-    const filterRun = this.state.employees.filter((emp) => {
-      emp.email.includes(value)});
+    const filterRun = this.state.employees.filter((emp) => 
+      emp.email.includes(value));
       this.setState({
         search: value, filterRun,
       });
     };
  
-
-  // sorting = (event) => {
-  //   const name = event.currentTarget.getAttribute('name');
-  //   let sort = this.state[name + 'Sort'];
-  //   sort === 0 ? (sort = 1) : sort === 1 ? (sort = -1) : (sort = 0);
-  //   let sorted;
-  //   sorted = this.state.filtereedEmp.sort((emp1, emp2) => {
-  //     if (emp1[name] < emp2[name]) {
-  //       return sort * -1;
-  //     }
-  //     if (emp1[name] > emp2[name]) {
-  //       return sort * 1;
-  //     }
-  //     return 0;
-  //   })
-  // }
 
   render() {
     return (
@@ -66,21 +45,34 @@ class EmployeeContainer extends Component {
           <Search
             searchInput={this.state.search}
             handleInputChange={this.handleInputChange}
+            filterRun={this.sorting}
+            emailSort={this.state.emailSort}
           />
         </div>
 
         <div className="row">
-          {this.state.employees.map((emp) => {
+          <div className="card center-align s12">
+            <div className="col m3 s12 header">First Name</div>
+            <div className="col m3 s12 header">Last Name</div> 
+            <div className="col m3 s12 header">Email</div>
+            <div className="col m3 s12 header">Phone</div>
+            </div>
+           
+            <br /> <br />
+       <div className="card-content">
+          {this.state.filterRun.map((emp) => {
             return (
               <UserDetail
-                firstname={emp.name}
-                lastname={emp.name.last}
+                key={emp.key}
+                firstName={emp.name.first}
+                lastName={emp.name.last}
                 email={emp.email}
-                picture={emp.picture.thumbnail}
                 phone={emp.phone}
               />
+        
             );
           })}
+        </div>
         </div>
       </Container>
     );

@@ -2,34 +2,17 @@ import React from "react";
 
 const UserDetail = (props) => {
   return (
-    <div className="row">
-      <table className="container">
-        <thead>
-          <tr>
-            <th>Picture</th>
-            {/*<th>ID</th> */}
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Email</th>
-            <th>Phone</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          <tr>
-            <td>
-              <img src={props.picture.thumbnail} alt={props.name} />
-            </td>
-            {/*<td>{props.id}</td> */}
-            <td>{props.name}</td>
-            <td>{props.name}</td>
-            <td>{props.email}</td>
-            <td>{props.phone}</td>
-          </tr>
-        </tbody>
-      </table>
+    <div className="row center-align">
+        <hr/>
+      <div className="col m3 s12">{props.firstName}</div>
+      <div className="col m3 s12">{props.lastName}</div>
+      <div className="col m3 s12">{props.email}</div>
+      <div className="col m3 s12">{props.phone}</div>
+    
     </div>
+
   );
+  
 };
 
 export default UserDetail;
