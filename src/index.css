@@ -23,3 +23,13 @@ body {
   body {
     background-color: #F6F6F6
   }
+
+  .header {
+    font-weight: 800;
+    color: #7DA1A0;
+  }
+
+
+  .card-content {
+    font-size: 13px;
+  }
