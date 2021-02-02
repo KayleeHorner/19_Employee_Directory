@@ -29,3 +29,6 @@ N/A
 
 ## Questions
 If you have any questions, you can find me on Github under at http://github.com/kayleehorner. Still have questions? You can email me at: kayleeahorner@gmail.com
+
+## Screenshots
+![Screenshot](./src/assets/directory_screenshot.png)
