@@ -32,3 +32,4 @@ If you have any questions, you can find me on Github under at http://github.com/
 
 ## Screenshots
 ![Screenshot](./src/assets/directory_screenshot.png)
+![Screenshot](./src/assets/filter_screenshot.png)
